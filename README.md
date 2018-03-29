@@ -3,12 +3,18 @@
 
 优化前后性能对比
 -----
+*mxnet*: 1.0.1\
+*network*: BN-Inception\
+*machine*: GTX 1080ti\
+*data classes*: 101\
+*number of frames*: 3f/video\
+*frame resolution*: 256x320
 
 | 读取方式            |             单个gpu              | 4个gpu                                  |
 | --------------- | :----------------------------: | -------------------------------------- |
-| cv2.imread，单线程 |  速度：23.44samples/sec   显存: 9491MB  | 速度： 26.81samples/sec   显存: 12274MBx4    |
-| cv2.imread，多线程（10） |  速度：23.44samples/sec   显存: 9491MB  | 速度： 26.81samples/sec   显存: 12274MBx4    |
-| 优化后    |  速度：120.50 samples/sec   显存: 9497MB | 速度： 464.67 samples/sec   显存: 12298MBx4 |
+| cv2.imread，单线程 |  速度：23.44samples/sec   显存: 9491MB  | 速度： 26.81samples/sec   显存: 12274MB    |
+| cv2.imread，多线程（10） |  速度：23.44samples/sec   显存: 9481MB  | 速度： 26.81samples/sec   显存: 12274MB    |
+| 优化后    |  速度：120.50 samples/sec   显存: 9497MB | 速度： 464.67 samples/sec   显存: 12298MB |
 
 
 接口使用姿势
