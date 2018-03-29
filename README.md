@@ -1,11 +1,18 @@
 
-| 读取方式            |             单个gpu              | 4个gpu                                  |
+本工程封装MXNet Rec接口，实现视频I/O读取速度优化.
+
+优化前后性能对比
+-----
+
+| 读取方式            |             单个gpu              | 4个gpu                                  |
 | --------------- | :----------------------------: | -------------------------------------- |
-| cv2.imread() |  23.44samples/sec 占GPU: 9491M  | Speed: 26.81samples/sec GPU: 12274M    |
-| 基于rec打包     | 120.50 samples/sec 占GPU: 9497M | Speed: 464.67 samples/sec 占GPU: 12298M |
+| cv2.imread，单线程 |  速度：23.44samples/sec   显存: 9491MB  | 速度： 26.81samples/sec   显存: 12274MBx4    |
+| cv2.imread，多线程（10） |  速度：23.44samples/sec   显存: 9491MB  | 速度： 26.81samples/sec   显存: 12274MBx4    |
+| 优化后    |  速度：120.50 samples/sec   显存: 9497MB | 速度： 464.67 samples/sec   显存: 12298MBx4 |
 
 
-测试方式：
+接口使用姿势
+-----
 
 1:本工程未提供截帧程序，视频需要提前截帧，每个视频对应的帧图像存放在同一个文件夹
 
